@@ -1,4 +1,4 @@
-.alternating-component {
+.event-component {
   background-color: #a7358b;
   color: white;
   display: block;
@@ -24,11 +24,11 @@
   -webkit-line-clamp: 5;
 }
 
-.alternating-component #imgRight {
+.event-component #imgRight {
   float: right;
   margin-left: 20px;
 }
-.alternating-component #imgLeft {
+.event-component #imgLeft {
   float: left;
   margin-right: 20px;
 }
