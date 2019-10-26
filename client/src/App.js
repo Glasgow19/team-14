@@ -4,6 +4,8 @@ import STYLES from './App.css';
 import styled from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom'
 import {firestore} from './config/firebase.init'
+import Home from './components/Home/hero.section'
+import NavBar from './components/Shared/NavBar' 
 
 const Main = styled.section`
 	display: block;
@@ -26,8 +28,8 @@ const App = () => {
 
 	return (
     <div>
-      
-
+      <NavBar/>
+      <Home></Home>
       {articles.forEach(a => console.log(a))}
 
       {/* <Router> '/}
