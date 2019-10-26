@@ -1,6 +1,5 @@
 .event-component {
   background-color: #a7358b;
-  color: white;
   display: block;
   margin: auto;
   padding: 10px;
@@ -15,4 +14,26 @@
 .event-component .title {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.event-component img {
+  float: left;
+}
+
+.event-component .content {
+  float: left;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.event-component .content h3 {
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+.purple {
+  color: #a7358b;
+}
+.white {
+  color: white;
 }
