@@ -1,0 +1,18 @@
+.event-component {
+  background-color: #a7358b;
+  color: white;
+  display: block;
+  margin: auto;
+  padding: 10px;
+  height: 150px;
+  position: relative;
+}
+
+#background-override {
+  background-color: white !important;
+}
+
+.event-component .title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
