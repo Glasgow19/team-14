@@ -1,10 +1,13 @@
-import React from "react";
-import STYLES from "./App.css";
+
+import React, {useEffect} from 'react';
+import STYLES from './App.css';
 // import { RouteConfig } from './routes';
-import styled from "styled-components";
-import { BrowserRouter as Router } from "react-router-dom";
-// import AlternatingComponent from "./components/AlternatingComponent";
-import "bootstrap/dist/css/bootstrap.min.css";
+import styled from 'styled-components';
+import { BrowserRouter as Router } from 'react-router-dom'
+import {firestore} from './config/firebase.init'
+import Home from './components/Home/hero.section'
+import NavBar from './components/Shared/NavBar' 
+
 
 const Main = styled.section`
   display: block;
@@ -13,21 +16,24 @@ const Main = styled.section`
 `;
 
 const App = () => {
-  return (
+
+  const articles = []
+
+  useEffect(() => {
+    firestore.collection('articles').get().then((data) => data.forEach(doc => {
+      console.log(doc.data()) 
+    }))
+    return () => {
+      
+    };
+  }, [])
+
+	return (
     <div>
-      {/* <AlternatingComponent
-        title="Article 1"
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        imgSrc="http://via.placeholder.com/150"
-        imgPosition="right"
-      />
-      <br />
-      <AlternatingComponent
-        title="Article 2"
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        imgSrc="http://via.placeholder.com/150"
-        imgPosition="left"
-      /> */}
+      <NavBar/>
+      <Home></Home>
+      {articles.forEach(a => console.log(a))}
+
 
       {/* <Router> '/}
 			<div className={'App'}>
