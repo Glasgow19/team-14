@@ -23,8 +23,11 @@ const Container = styled.div`
 `;
 
 const HeroSection = () => {
+
+    console.log("testting ")
 	return (
 		<Container>
+             
 			<img style= {{height: '100%'}}
 				src={'https://www.uri.edu/programs/wp-content/uploads/programs/sites/3/2014/04/feat_img_comp_sci.jpg'}
 				alt="img"
