@@ -1,21 +1,19 @@
-import React from 'react';
-import STYLES from './App.css';
+import React from "react";
+import STYLES from "./App.css";
 // import { RouteConfig } from './routes';
-import styled from 'styled-components';
-import { BrowserRouter as Router } from 'react-router-dom';
+import styled from "styled-components";
+import { BrowserRouter as Router } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Main = styled.section`
-	display: block;
-	padding-top: 61px;
-	width: 100%;
+  display: block;
+  padding-top: 61px;
+  width: 100%;
 `;
 
 const App = () => {
-	return (
+  return (
     <div>
-
-
-      
       {/* <Router> '/}
 			<div className={'App'}>
 				<Main>
@@ -24,8 +22,7 @@ const App = () => {
 			</div>
 		{/* </Router> */}
     </div>
-		
-	);
+  );
 };
 
 export default App;
