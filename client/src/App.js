@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import STYLES from "./App.css";
 // import { RouteConfig } from './routes';
@@ -5,6 +6,14 @@ import styled from "styled-components";
 import { BrowserRouter as Router } from "react-router-dom";
 // import AlternatingComponent from "./components/AlternatingComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
+=======
+import React, {useEffect} from 'react';
+import STYLES from './App.css';
+// import { RouteConfig } from './routes';
+import styled from 'styled-components';
+import { BrowserRouter as Router } from 'react-router-dom'
+import {firestore} from './config/firebase.init'
+>>>>>>> d353958daa760c31fc43dc983e5a4af91545d4a0
 
 const Main = styled.section`
   display: block;
@@ -13,6 +22,7 @@ const Main = styled.section`
 `;
 
 const App = () => {
+<<<<<<< HEAD
   return (
     <div>
       {/* <AlternatingComponent
@@ -29,6 +39,26 @@ const App = () => {
         imgPosition="left"
       /> */}
 
+=======
+
+  const articles = []
+
+  useEffect(() => {
+    firestore.collection('articles').get().then((data) => data.forEach(doc => {
+      console.log(doc.data()) 
+    }))
+    return () => {
+      
+    };
+  }, [])
+
+	return (
+    <div>
+      
+
+      {articles.forEach(a => console.log(a))}
+
+>>>>>>> d353958daa760c31fc43dc983e5a4af91545d4a0
       {/* <Router> '/}
 			<div className={'App'}>
 				<Main>
