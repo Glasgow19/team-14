@@ -1,0 +1,34 @@
+.alternating-component {
+  background-color: #a7358b;
+  color: white;
+  display: block;
+  margin: auto;
+  padding: 10px;
+  height: 150px;
+  position: relative;
+}
+
+#background-override {
+  background-color: #a7358b !important;
+}
+
+.event-component .title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.truncate {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.alternating-component #imgRight {
+  float: right;
+  margin-left: 20px;
+}
+.alternating-component #imgLeft {
+  float: left;
+  margin-right: 20px;
+}
