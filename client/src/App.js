@@ -1,21 +1,33 @@
-import React from 'react';
-import STYLES from './App.css';
+import React from "react";
+import STYLES from "./App.css";
 // import { RouteConfig } from './routes';
-import styled from 'styled-components';
-import { BrowserRouter as Router } from 'react-router-dom';
+import styled from "styled-components";
+import { BrowserRouter as Router } from "react-router-dom";
+// import AlternatingComponent from "./components/AlternatingComponent";
 
 const Main = styled.section`
-	display: block;
-	padding-top: 61px;
-	width: 100%;
+  display: block;
+  padding-top: 61px;
+  width: 100%;
 `;
 
 const App = () => {
-	return (
+  return (
     <div>
+      {/* <AlternatingComponent
+        title="Article 1"
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        imgSrc="http://via.placeholder.com/150"
+        imgPosition="right"
+      />
+      <br />
+      <AlternatingComponent
+        title="Article 2"
+        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        imgSrc="http://via.placeholder.com/150"
+        imgPosition="left"
+      /> */}
 
-
-      
       {/* <Router> '/}
 			<div className={'App'}>
 				<Main>
@@ -24,8 +36,7 @@ const App = () => {
 			</div>
 		{/* </Router> */}
     </div>
-		
-	);
+  );
 };
 
 export default App;
