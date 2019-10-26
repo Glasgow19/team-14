@@ -1,3 +1,4 @@
+
 import React, {useEffect} from 'react';
 import STYLES from './App.css';
 // import { RouteConfig } from './routes';
@@ -7,10 +8,11 @@ import {firestore} from './config/firebase.init'
 import Home from './components/Home/hero.section'
 import NavBar from './components/Shared/NavBar' 
 
+
 const Main = styled.section`
-	display: block;
-	padding-top: 61px;
-	width: 100%;
+  display: block;
+  padding-top: 61px;
+  width: 100%;
 `;
 
 const App = () => {
@@ -32,6 +34,7 @@ const App = () => {
       <Home></Home>
       {articles.forEach(a => console.log(a))}
 
+
       {/* <Router> '/}
 			<div className={'App'}>
 				<Main>
@@ -40,8 +43,7 @@ const App = () => {
 			</div>
 		{/* </Router> */}
     </div>
-		
-	);
+  );
 };
 
 export default App;
