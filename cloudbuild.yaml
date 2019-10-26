@@ -1,0 +1,12 @@
+steps:
+  # build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/dress-code-7470f/dresscode-xx5sc', '.']
+  # push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/dress-code-7470f/dresscode-xx5sc']
+  # Deploy container image to Cloud Run
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', '[dresscode-xx5sc]', '--image', 'gcr.io/dress-code-7470f/dresscode-xx5sc', '--region', '[europe-west1]','--platform', 'manage', '--quiet']
+images:
+- gcr.io/dress-code-7470f/dresscode-xx5sc
