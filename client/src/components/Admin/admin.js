@@ -6,7 +6,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import { firestore } from "../../config/firebase.init";
+import firestore from "../../config/firebase.init";
+import storage from "../../config/firebase.init";
 import firebase from "firebase/app";
 
 
@@ -59,15 +60,6 @@ export default function SimpleTabs() {
   };
 
   function submitArticle(evt) {
-    var config = {
-      apiKey: process.env.apiKey,
-      authDomain: "dress-code-7470f.firebaseapp.com",
-      databaseURL: "https://dress-code-7470f.firebaseio.com",
-      projectId: "dress-code-7470f",
-  
-    };
-    var app = firebase.initializeApp(config);
-    db = firebase.firestore(app);
     //upload image
     let articleTitle = document.getElementById("articleTitle").value;
     let imagePath = "images/" + articleTitle;
@@ -86,9 +78,7 @@ export default function SimpleTabs() {
     //   featured: document.getElementById("articleFeatured").checked,
     //   image: imagePath
     // }); 
-    db
-      .collection("articles")
-      .add({
+    firestore.collection("articles").set({
         title: articleTitle,
         text: document.getElementById("articleText").value,
         featured: document.getElementById("articleFeatured").checked,
