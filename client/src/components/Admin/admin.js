@@ -98,10 +98,11 @@ export default function SimpleTabs() {
 
     let firstFile = evt.target.files[0]; // upload the first file only
     let uploadTask = storageRef.put(firstFile);
+    evt.preventDefault()
+
     //save data to db
-    firestore
-      .collection("resources")
-      .add({
+    const db = firestore
+    const a = db.collection("resources").add({
         title: resourceTitle,
         url: document.getElementById("resourceUrl").value,
         image: imagePath
@@ -115,6 +116,8 @@ export default function SimpleTabs() {
   }
   function submitFact(evt) {
     //upload image
+    evt.preventDefault()
+
     let factTitle = document.getElementById("factTitle").value;
     let imagePath = "images/" + factTitle;
     let storageRef = firebase.storage().ref(imagePath);
@@ -123,9 +126,8 @@ export default function SimpleTabs() {
     let firstFile = evt.target.files[0]; // upload the first file only
     let uploadTask = storageRef.put(firstFile);
     //save data to db
-    firestore
-      .collection("facts")
-      .add({
+    const db = firestore
+    const a = db.collection("facts").add({
         title: factTitle,
         url: document.getElementById("factUrl").value,
         image: imagePath
@@ -138,6 +140,8 @@ export default function SimpleTabs() {
       });
   }
   function submitEvent(evt) {
+    evt.preventDefault()
+
     //upload image
     let eventTitle = document.getElementById("eventTitle").value;
     let date = document.getElementById("eventDate").value;
@@ -148,9 +152,8 @@ export default function SimpleTabs() {
     let firstFile = evt.target.files[0]; // upload the first file only
     let uploadTask = storageRef.put(firstFile);
     //save data to db
-    firestore
-      .collection("events")
-      .add({
+    const db = firestore
+    const a = db.collection("events").add({
         title: eventTitle,
         date: document.getElementById("eventDate").value,
         location: document.getElementById("eventLocation").value,
@@ -164,6 +167,8 @@ export default function SimpleTabs() {
       });
   }
   function submitStory(evt) {
+    evt.preventDefault()
+
     //upload image
     let storyName = document.getElementById("storyName").value;
     let storyAge = document.getElementById("storyAge").value;
@@ -174,9 +179,8 @@ export default function SimpleTabs() {
     let firstFile = evt.target.files[0]; // upload the first file only
     let uploadTask = storageRef.put(firstFile);
     //save data to db
-    firestore
-      .collection("events")
-      .add({
+    const db = firestore
+    const a = db.collection("userStories").add({
         name: storyName,
         age: document.getElementById("storyAge").value,
         story: document.getElementById("storyStory").value,
@@ -189,22 +193,6 @@ export default function SimpleTabs() {
         console.error("Error adding document: ", error);
       });
   }
-
-  // "#submitArticle".addEventListener("click", function(evt) {
-  //   submitArticle(evt);
-  // });
-  // "#submitResource".addEventListener("click", function(evt) {
-  //   submitResource(evt);
-  // });
-  // "#submitFact".addEventListener("click", function(evt) {
-  //   submitFact(evt);
-  // });
-  // "#submitEvent".addEventListener("click", function(evt) {
-  //   submitEvent(evt);
-  // });
-  // "#submitStory".addEventListener("click", function(evt) {
-  //   submitStory(evt);
-  // });
 
   return (
     <div className={classes.root}>
