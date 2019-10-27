@@ -16,7 +16,7 @@ import Backbutton from './components/Shared/backbutton';
 
 const Main = styled.section`
 	display: block;
-	padding-top: 61px;
+	padding-top: 0px;
 	width: 100%;
 `;
 
