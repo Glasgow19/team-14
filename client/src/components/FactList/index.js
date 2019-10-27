@@ -37,9 +37,9 @@ const FactList = () => {
   return (
     <div>
       {loading && <p>Loading</p>}
-      {!loading && (
-        <div style={{overflow:'hidden', display: 'WebkitBox', 'WebkitBoxOrient': 'vertical', WebkitLineClamp: 5}}>
-          {factArray.map((fact, index) => (
+      {!loading && 
+        
+          factArray.map((fact, index) => (
             <Fact
               key={index}
               index={index}
@@ -48,9 +48,9 @@ const FactList = () => {
               img={fact.img}
               backgroundColour={fact.backgroundColour}
             />
-          ))}
-        </div>
-      )}
+          ))
+    
+      }
     </div>
   );
 };

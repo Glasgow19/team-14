@@ -23,7 +23,8 @@ const Fact = (props) => {
 		//     <h3><a href={props.url} className="URL" id='url'>{props.url}</a></h3>
 		//   </div>
 		<div className="fact-component" id={optionalId}>
-			<PaperComponent text={props.title} />
+
+			<PaperComponent text={props.title} title="Title" img={"https://i1.wp.com/geoawesomeness.com/wp-content/uploads/2017/09/Coding-Geospatial.jpg"} />
 		</div>
 	);
 };
