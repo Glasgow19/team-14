@@ -31,7 +31,7 @@ const titleContainer = styled.div`
 const App = () => {
 	return (
 		<Router>
-			<Container >
+		
 				<Main>
           
 					<NavBar />
@@ -40,7 +40,6 @@ const App = () => {
 					<RouteConfig />
           <Footer />
 				</Main>
-			</Container>
 		</Router>
 	);
 };
