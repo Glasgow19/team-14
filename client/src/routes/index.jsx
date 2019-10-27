@@ -1,13 +1,13 @@
-import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import {routes} from './routes.config';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { routes } from "./routes.config";
 
 function RouteWithSubRoutes(route) {
   return (
     <Route
       path={route.path}
       render={props => (
-        <route.component {...props} routes={route.routes || null}/>
+        <route.component {...props} routes={route.routes || null} />
       )}
     />
   );
@@ -16,7 +16,7 @@ function RouteWithSubRoutes(route) {
 export const RouteConfig = () => {
   return (
     <div>
-      {routes.map((route) => (
+      {routes.map(route => (
         <Route
           exact
           key={route.path}

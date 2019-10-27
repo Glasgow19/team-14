@@ -5,7 +5,6 @@ import Fact from "./../Fact";
 const FactList = () => {
   const [loading, setLoading] = useState(true);
   const [factArray, setFactArray] = useState([]);
-  console.log(factArray.length);
 
   useEffect(() => {
     firestore
@@ -38,7 +37,14 @@ const FactList = () => {
     <div>
       {loading && <p>Loading</p>}
       {!loading && (
-        <div style={{overflow:'hidden', display: '-webkit-box', 'WebkitBoxOrient': 'vertical', WebkitLineClamp: 5}}>
+        <div
+          style={{
+            overflow: "hidden",
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 5
+          }}
+        >
           {factArray.map((fact, index) => (
             <Fact
               key={index}

@@ -33,5 +33,5 @@ AlternatingComponent.propTypes = {
   index: PropTypes.number,
   title: PropTypes.string,
   text: PropTypes.string,
-  imgSrc: PropTypes.string,
+  imgSrc: PropTypes.string
 };
