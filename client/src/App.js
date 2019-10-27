@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import STYLES from './App.css';
+import React, { useEffect } from "react";
+import STYLES from "./App.css";
 // import { RouteConfig } from './routes';
 
 import styled from 'styled-components';
@@ -13,6 +13,8 @@ import Article from './components/Article';
 import { RouteConfig } from './routes/';
 import { Container } from '@material-ui/core';
 import Backbutton from './components/Shared/backbutton';
+import PageTitle from "./components/PageTitle";
+import Footer from "./components/Footer";
 
 const Main = styled.section`
 	display: block;
@@ -29,6 +31,8 @@ const App = () => {
 					<NavBar />
           {/* <Backbutton/> */}
 					<RouteConfig />
+          <PageTitle title="Home" />
+          <Footer />
 				</Main>
 			</Container>
 		</Router>
