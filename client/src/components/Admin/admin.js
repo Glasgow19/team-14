@@ -6,13 +6,9 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import firestore from "../../config/firebase.init";
+import { firestore } from "../../config/firebase.init";
 import storage from "../../config/firebase.init";
 import firebase from "firebase/app";
-
-
-
-  
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -66,19 +62,21 @@ export default function SimpleTabs() {
 
     let storageRef = firebase.storage().ref(imagePath);
     let fileUpload = document.getElementById("articleImage");
-    fileUpload.addEventListener('change', function(evt) {
+    fileUpload.addEventListener("change", function(evt) {
       let firstFile = evt.target.files[0]; // upload the first file only
       let uploadTask = storageRef.put(firstFile);
-    })
-    
+    });
+
     //save data to db
     // firebase.database().ref('articles/').add({
     //   title: articleTitle,
     //   text: document.getElementById("articleText").value,
     //   featured: document.getElementById("articleFeatured").checked,
     //   image: imagePath
-    // }); 
-    firestore.collection("articles").set({
+    // });
+    firestore
+      .collection("articles")
+      .set({
         title: articleTitle,
         text: document.getElementById("articleText").value,
         featured: document.getElementById("articleFeatured").checked,
@@ -225,10 +223,9 @@ export default function SimpleTabs() {
       </AppBar>
       <TabPanel value={value} index={0}>
         <form id="articleform">
-          Title:{" "}
-          <input id="articleTitle" type="text" name="title" />
+          Title: <input id="articleTitle" type="text" name="title" />
           <br></br>
-          Url: <input id="articleText" type="text" name="url"  />
+          Url: <input id="articleText" type="text" name="url" />
           <br></br>
           Featured:{" "}
           <input id="articleFeatured" type="checkbox" name="featured" checked />
@@ -241,8 +238,7 @@ export default function SimpleTabs() {
       </TabPanel>
       <TabPanel value={value} index={1}>
         <form id="resourceform">
-          Title:{" "}
-          <input id="resourceTitle" type="text" name="title"  />
+          Title: <input id="resourceTitle" type="text" name="title" />
           <br></br>
           Url: <input id="resourceUrl" type="text" name="url" />
           <br></br>
@@ -266,8 +262,7 @@ export default function SimpleTabs() {
       </TabPanel>
       <TabPanel value={value} index={3}>
         <form id="eventform">
-          Title:{" "}
-          <input id="eventTitle" type="text" name="title" />
+          Title: <input id="eventTitle" type="text" name="title" />
           <br></br>
           Image:{" "}
           <input id="eventImage" type="file" name="image" accept="image/*" />
@@ -287,12 +282,12 @@ export default function SimpleTabs() {
       </TabPanel>
       <TabPanel value={value} index={4}>
         <form>
-          Name: <input id="storyName" type="text" name="name"  />
+          Name: <input id="storyName" type="text" name="name" />
           <br></br>
           Image:{" "}
           <input id="storyImage" type="file" name="image" accept="image/*" />
           <br></br>
-          Age: <input id="storyAge" type="text" name="age"  />
+          Age: <input id="storyAge" type="text" name="age" />
           <br></br>
           Story: <input id="storyStory" type="text" name="story" />
           <br></br>
