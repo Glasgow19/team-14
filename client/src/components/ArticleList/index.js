@@ -1,33 +1,62 @@
 import React, { useEffect, useState } from "react";
 import { firestore } from "../../config/firebase.init";
 import AlternatingComponent from "../AlternatingComponent"
-import Article from "../Article"
 
 const ArticleList = () => {
-  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [articleArray, setArticleArray] = useState([]);
 
   useEffect(() => {
     firestore
       .collection("articles")
       .get()
-      .then(data =>
-        data.forEach(d => {
-          console.log(d.data())
-          setArticles(articles.concat([d.data()]))
-          console.log(articles)
+      .then(articles =>
+        articles.forEach(article => {
+          article = article.data();
+          const articleDate = "Today";
+          const articleImgUrl = "http://via.placeholder.com/150";
+          const articleTitle = article.title;
+          const articleText = article.text;
+          console.log(articleTitle);
 
-        })        
-      );
-
+          setArticleArray(
+            articleArray.concat([
+              {
+                title: articleTitle,
+                date: articleDate,
+                imgSrc: articleImgUrl,
+                text: articleText,
+                backgroundColour: "purple"
+              }
+            ])
+          );
+        })
+      )
+      .then(() => {
+        setLoading(false);
+      });
     return () => {};
   }, []);
 
-  
   return (
     <div>
-            {articles.map(a => <AlternatingComponent title={a.title} imgSrc={a.imgSrc} text={a.text}/>)}
+      {loading && <p>Loading</p>}
+      {!loading && (
+        <div>
+          {articleArray.map((article, index) => (
+            <AlternatingComponent
+              key={index}
+              index={index}
+              title={article.title}
+              date={article.date}
+              text={article.text}
+              imgSrc={article.imgSrc}
+            />
+          ))}
+        </div>
+      )}
     </div>
-    )
+  );
 };
 
 export default ArticleList;
