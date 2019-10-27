@@ -17,6 +17,7 @@ const EventList = () => {
           const eventImageUrl = "http://via.placeholder.com/150";
           const eventLocation = "Glasgow";
           const eventTitle = event.title;
+          console.log(eventTitle);
 
           setEventArray(
             eventArray.concat([

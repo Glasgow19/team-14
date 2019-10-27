@@ -40,7 +40,7 @@ const App = () => {
         location="Glasgow"
         date="27 Oct"
         imgSrc="http://via.placeholder.com/150"
-        backgroundColour="white"
+        index="0"
       />
       <br />
       <Event
@@ -48,7 +48,7 @@ const App = () => {
         location="Glasgow"
         date="28 Oct"
         imgSrc="http://via.placeholder.com/150"
-        backgroundColour="purple"
+        index="1"
       />
       <br />
       <Event
@@ -56,7 +56,15 @@ const App = () => {
         location="Edinburgh"
         date="29 Oct"
         imgSrc="http://via.placeholder.com/150"
-        backgroundColour="white"
+        index="2"
+      />
+      <br />
+      <Event
+        title="Event 3"
+        location="Edinburgh"
+        date="29 Oct"
+        imgSrc="http://via.placeholder.com/150"
+        index="3"
       /> */}
 
       {articles.forEach(a => console.log(a))}
