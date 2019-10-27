@@ -71,11 +71,11 @@ const Home = () => {
 	return (
 		<Container>
             <HeroComponent img="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fdisruptionmag.com%2Fwp-content%2Fuploads%2F2017%2F01%2Fgirls-who-code-3.jpg&f=1&nofb=1" />
-			<ScrollContainer bg="#F8AD18" arr={tileData} title="Learn more" />
-			<ScrollContainer bg="#62cde0" arr={tileData} title="Facts" />
-			<ScrollContainer bg="#e06662" arr={tileData} title="Success stories" />
-			<ScrollContainer bg="#62e0b4" arr={tileData} title="Featured Articles" />
-			<ScrollContainer bg="#62cde0" arr={tileData} title="Resources" />
+			<ScrollContainer bg="#F8AD18" arr={tileData} link={"/info"} title="Learn more" />
+			<ScrollContainer bg="#62cde0" arr={tileData} link={"/facts"} title="Facts" />
+      <ScrollContainer bg="#e06662" arr={tileData} link={"/title"} ="Success stories" />
+			<ScrollContainer bg="#62e0b4" arr={tileData} link={"/stories"} title="Featured Articles" />
+			<ScrollContainer bg="#62cde0" arr={tileData} link={"/resources"}title="Resources" />
         </Container>
 			
 		
