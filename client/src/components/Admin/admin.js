@@ -67,26 +67,26 @@ export default function SimpleTabs() {
     })
     
     //save data to db
-    firebase.database().ref('articles/').add({
-      title: articleTitle,
-      text: document.getElementById("articleText").value,
-      featured: document.getElementById("articleFeatured").checked,
-      image: imagePath
-    });
-    // firestore
-    //   .collection("articles")
-    //   .add({
-    //     title: articleTitle,
-    //     text: document.getElementById("articleText").value,
-    //     featured: document.getElementById("articleFeatured").checked,
-    //     image: imagePath
-    //   })
-    //   .then(function(docRef) {
-    //     console.log("Document written with ID: ", docRef.id);
-    //   })
-    //   .catch(function(error) {
-    //     console.error("Error adding document: ", error);
-    //   });
+    // firebase.database().ref('articles/').add({
+    //   title: articleTitle,
+    //   text: document.getElementById("articleText").value,
+    //   featured: document.getElementById("articleFeatured").checked,
+    //   image: imagePath
+    // }); 
+    firestore
+      .collection("articles")
+      .add({
+        title: articleTitle,
+        text: document.getElementById("articleText").value,
+        featured: document.getElementById("articleFeatured").checked,
+        image: imagePath
+      })
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
   }
   function submitResource(evt) {
     //upload image
