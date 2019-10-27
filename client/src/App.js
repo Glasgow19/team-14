@@ -28,19 +28,22 @@ const titleContainer = styled.div`
 `;
 
 const App = () => {
-  return (
-    <Router>
-      <Container>
-        <Main>
-          <NavBar />
+
+	return (
+		<Router>
+		
+				<Main>
+          
+					<NavBar />
+
           <PageTitle as={Link} to="/" title="dressCode" />
           {/* <Backbutton/> */}
           <RouteConfig />
           <Footer />
-        </Main>
-      </Container>
-    </Router>
-  );
+				</Main>
+		</Router>
+	);
+
 };
 
 export default App;
