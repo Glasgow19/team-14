@@ -5,7 +5,6 @@ import Event from "./../Event";
 const EventList = () => {
   const [loading, setLoading] = useState(true);
   const [eventArray, setEventArray] = useState([]);
-  console.log(eventArray.length);
 
   useEffect(() => {
     firestore
@@ -15,17 +14,16 @@ const EventList = () => {
         const arr = [];
         events.forEach(event => {
           event = event.data();
-          const eventDate = "Today";
-          const eventImageUrl = "http://via.placeholder.com/150";
-          const eventLocation = "Glasgow";
+          const eventDate = event.date;
+          const eventImageUrl = event.imgSrc;
+          const eventLocation = event.location;
           const eventTitle = event.title;
 
           arr.push({
             title: eventTitle,
             location: eventLocation,
             date: eventDate,
-            imgSrc: eventImageUrl,
-            backgroundColour: "purple"
+            imgSrc: eventImageUrl
           });
         });
         setEventArray(arr);
@@ -46,10 +44,9 @@ const EventList = () => {
               key={index}
               index={index}
               title={event.title}
-              location={event.location}
+              eventLocation={event.location}
               date={event.date}
               imgSrc={event.imgSrc}
-              backgroundColour={event.backgroundColour}
             />
           ))}
         </div>

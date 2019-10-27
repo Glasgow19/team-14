@@ -1,18 +1,42 @@
-import Event from '../components/Event/'
+import Event from "../components/Event/";
+import EventList from "../components/EventList/";
 import Article from "../components/Article/";
-import Home from '../components/Home/'
+import ArticleList from "../components/ArticleList";
+import Home from "../components/Home/";
+import Story from "../components/SuccessStory/StoryDetailView";
+import FactList from "../components/FactList";
 
 export const routes = [
-    {
-        path: "/",
-        component: Home,
-      },
-      {
-        path: "/events",
-        component: Event
-      },
-      {
-        path: '/articles',
-        component: Article,
-      },
-]
+  {
+    path: "/",
+    component: Home
+  },
+  {
+    path: "/event",
+    component: Event
+  },
+  {
+    path: "/events",
+    component: EventList
+  },
+  {
+    path: "/article",
+    component: Article
+  },
+  {
+    path: "/articles",
+    component: ArticleList
+  },
+  {
+    path: "/admin",
+    component: Home
+  },
+  {
+    path: "/info",
+    component: FactList
+  },
+  {
+    path: "/story",
+    component: Story
+  }
+];

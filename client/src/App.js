@@ -1,51 +1,49 @@
 import React, { useEffect } from "react";
 import STYLES from "./App.css";
 // import { RouteConfig } from './routes';
+
 import styled from "styled-components";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { firestore } from "./config/firebase.init";
-import SimpleTabs from "./components/Admin/admin";
+import Home from "./components/Home/index";
+import NavBar from "./components/Shared/NavBar";
+import ScrollContainer from "./components/Shared/ScrollContainer";
+import Event from "./components/Event";
+import Article from "./components/Article";
+import { RouteConfig } from "./routes/";
+import { Container } from "@material-ui/core";
+import Backbutton from "./components/Shared/backbutton";
+import PageTitle from "./components/PageTitle";
+import Footer from "./components/Footer";
 
 const Main = styled.section`
   display: block;
-  padding-top: 61px;
+  padding-top: 0px;
   width: 100%;
 `;
 
+const titleContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const App = () => {
-  const articles = [];
 
-  useEffect(() => {
-    firestore
-      .collection("articles")
-      .get()
-      .then(data =>
-        data.forEach(doc => {
-          console.log(doc.data());
-        })
-      );
-    return () => {};
-  }, []);
+	return (
+		<Router>
 
-  return (
-    <div>
-      <SimpleTabs />
-
-      {articles.forEach(a => console.log(a))}
-
-      {/* <Router> '/}
-			<div className={'App'}>
 				<Main>
+
 					<NavBar />
+
+          <PageTitle as={Link} to="/" title="dressCode" />
           {/* <Backbutton/> */}
-					<RouteConfig />
-          <PageTitle title="Home" />
+          <RouteConfig />
           <Footer />
 				</Main>
-			</div>
-		{/* </Router> */}
-    </div>
-  );
+		</Router>
+	);
+
 };
 
 export default App;

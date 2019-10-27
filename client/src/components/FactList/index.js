@@ -5,7 +5,6 @@ import Fact from "./../Fact";
 const FactList = () => {
   const [loading, setLoading] = useState(true);
   const [factArray, setFactArray] = useState([]);
-  console.log(factArray.length);
 
   useEffect(() => {
     firestore
@@ -37,9 +36,9 @@ const FactList = () => {
   return (
     <div>
       {loading && <p>Loading</p>}
-      {!loading && (
-        <div>
-          {factArray.map((fact, index) => (
+      {!loading && 
+        
+          factArray.map((fact, index) => (
             <Fact
               key={index}
               index={index}
@@ -48,9 +47,9 @@ const FactList = () => {
               img={fact.img}
               backgroundColour={fact.backgroundColour}
             />
-          ))}
-        </div>
-      )}
+          ))
+    
+      }
     </div>
   );
 };
