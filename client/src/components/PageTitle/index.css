@@ -1,0 +1,12 @@
+#page-title {
+  height: 60px;
+  background-color: #75529d;
+  text-align: center;
+  font-size: 17px;
+  color: white;
+}
+
+#page-title h2 {
+  margin: 0;
+  padding-top: 12px;
+}

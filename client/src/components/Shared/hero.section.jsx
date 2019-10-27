@@ -23,14 +23,14 @@ const Container = styled.div`
 	}
 `;
 
-const HeroSection = () => {
+const HeroSection = (props) => {
 
     console.log("testting ")
 	return (
 		<Container>
              
 			<img style= {{height: '100%', width: '100%'}}
-				src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fdisruptionmag.com%2Fwp-content%2Fuploads%2F2017%2F01%2Fgirls-who-code-3.jpg&f=1&nofb=1'}
+				src={props.img}
 				alt="img"
 			/>
 			<div>
