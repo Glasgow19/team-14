@@ -11,7 +11,7 @@ var styles = {
 		top: '10px'
 	},
 	bmBurgerBars: {
-		background: '#a92000'
+		background: '#fff'
 	},
 	bmBurgerBarsHover: {
 		background: '#a90000'
@@ -39,9 +39,7 @@ var styles = {
 		color: '#b8b7ad',
 		padding: '0.8em'
 	},
-	bmItem: {
-		display: 'inline-block'
-	},
+
 	bmOverlay: {
 		background: 'rgba(0, 0, 0, 0.3)'
 	}
@@ -52,10 +50,23 @@ const NavBar = (props) => {
 	return (
 		// <p style= {{marginTop:0}}>test</p>
 		<div>
-			<Menu right styles={styles} >
-				<a id="home" className="menu-item" href="/">
-					Home
-				</a>
+			<Menu right styles={styles}>
+				<div id="home" className="menu-item">
+					<a href="/">Home</a>
+					<br />
+				</div>
+				<div id="info" className="menu-item">
+					<a href="/info">More Info</a>
+					<br />
+				</div>
+				<div id="story" className="menu-item">
+					<a href="/story">Success stories</a>
+					<br />
+				</div>
+				<div id="articles" className="menu-item">
+					<a href="/articles">Read articles</a>
+					<br />
+				</div>
 			</Menu>
 		</div>
 	);

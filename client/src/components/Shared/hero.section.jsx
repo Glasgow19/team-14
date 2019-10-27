@@ -12,12 +12,14 @@ const Container = styled.div`
 	align-items: center;
 
 	div {
+		display: flex;
+		margin-bottom: 0px;
 		position: absolute;
 		text-align: center;
 		font-family: 'Questrial', sans-serif;
 		line-height: 0.8;
-		font-size: 40px;
-		background-color: rgba(255, 255, 255, 0.6);
+		font-size: 32px;
+		background-color: rgba(255, 255, 255, 0.5);
 		padding: 23px 10px;
         color: #a7358b;
 	}
@@ -34,8 +36,11 @@ const HeroSection = (props) => {
 				alt="img"
 			/>
 			<div>
-				Code and<br /> change the world!
+				{props.text || "Learn coding" }
 			</div>
+
+			
+
 		</Container>
 	);
 };

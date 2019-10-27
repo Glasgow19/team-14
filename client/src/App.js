@@ -28,12 +28,12 @@ const Main = styled.section`
 const App = () => {
 	return (
 		<Router>
-			<Container>
+			<Container >
 				<Main>
 					<NavBar />
+          <PageTitle title="dressCode" />
           {/* <Backbutton/> */}
 					<RouteConfig />
-          <PageTitle title="Home" />
           <Footer />
 				</Main>
 			</Container>
