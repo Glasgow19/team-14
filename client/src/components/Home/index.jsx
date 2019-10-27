@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import HeroComponent from './hero.section';
 import ScrollContainer from '../Shared/ScrollContainer'
+import {firestore} from '../../config/firebase.init'
 
 const Container = styled.div`
 	display: flex;
@@ -11,13 +12,48 @@ const Container = styled.div`
 `;
 
 const Home = () => {
+	const [articleArray, setArticleArray] = useState([]);
+	const [loading, setLoading] = useState(true)
+	useEffect(() => {
+		firestore
+		  .collection("articles")
+		  .get()
+		  .then(function(articles) {
+			const arr = [];
+			articles.forEach(article => {
+			  article = article.data();
+				if (article.featured) {
+					console.log("Found featured article!!")
+					arr.push({
+						featured: true,
+						title: article.title,
+						text: article.text,
+						date: article.date,
+						imgSrc: article.imageUrl,
+						backgroundColour: "purple"
+					  });
+				}	
+				
+			});
+			setArticleArray(arr);
+			console.log("Entire arr:", arr)
+		  })
+		  .then(() => {
+			console.log("Error array empty!!", articleArray);
+			setLoading(false);
+		  });
+		return () => {};
+	  }, []);
+
+	//   const yo = [1, 2, 3];
 	return (
 		<div>
 			<HeroComponent />
 			<ScrollContainer bg="#F8AD18" title="Learn more" />
 			<ScrollContainer bg="#e06662" title="Success stories" />
-			<ScrollContainer bg="#62e0b4" title="Featured Articles" />
+			<ScrollContainer bg="#62e0b4" arr={articleArray} title="Featured Articles" />
 			<ScrollContainer bg="#62cde0" title="Resources" />
+			
 		</div>
 	);
 };
