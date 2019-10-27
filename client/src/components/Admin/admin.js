@@ -11,16 +11,8 @@ import firebase from "firebase/app";
 
 
 
-before(() => {
-  var config = {
-    apiKey: process.env.apiKey,
-    authDomain: "dress-code-7470f.firebaseapp.com",
-    databaseURL: "https://dress-code-7470f.firebaseio.com",
-    projectId: "dress-code-7470f",
-
-  };
-
   
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -67,6 +59,13 @@ export default function SimpleTabs() {
   };
 
   function submitArticle(evt) {
+    var config = {
+      apiKey: process.env.apiKey,
+      authDomain: "dress-code-7470f.firebaseapp.com",
+      databaseURL: "https://dress-code-7470f.firebaseio.com",
+      projectId: "dress-code-7470f",
+  
+    };
     var app = firebase.initializeApp(config);
     db = firebase.firestore(app);
     //upload image
