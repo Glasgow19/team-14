@@ -4,7 +4,7 @@ import STYLES from "./App.css";
 import styled from "styled-components";
 import { BrowserRouter as Router } from "react-router-dom";
 import { firestore } from "./config/firebase.init";
-import SimpleTabs from "./components/Admin/Admin";
+import SimpleTabs from "./components/Admin/admin";
 
 const Main = styled.section`
   display: block;
