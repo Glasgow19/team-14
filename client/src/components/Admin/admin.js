@@ -70,10 +70,20 @@ export default function SimpleTabs() {
     });
 
     function submitArticle(){
+        //upload image
+        let articleTitle = document.getElementById("articleTitle").value;
+        let imagePath = 'images/'+ articleTitle;
+        let storageRef = firebase.storage().ref(imagePath);
+        let fileUpload = document.getElementById("articleImage");
+      
+        let firstFile = evt.target.files[0] // upload the first file only
+        let uploadTask = storageRef.put(firstFile)
+        //save data to db
         firestore.collection("articles").add({
-            title: document.getElementById("articleTitle").value,
-            url: document.getElementById("articleUrl").value,
+            title: articleTitle,
+            text: document.getElementById("articleText").value,
             featured: document.getElementById("articleFeatured").checked,
+            image: imagePath,
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
@@ -83,9 +93,19 @@ export default function SimpleTabs() {
         });
     }
     function submitResource(){
+        //upload image
+        let resourceTitle = document.getElementById("resourceTitle").value;
+        let imagePath = 'images/'+ resourceTitle;
+        let storageRef = firebase.storage().ref(imagePath);
+        let fileUpload = document.getElementById("resourceImage");
+      
+        let firstFile = evt.target.files[0] // upload the first file only
+        let uploadTask = storageRef.put(firstFile)
+        //save data to db
         firestore.collection("resources").add({
-            title: document.getElementById("resourceTitle").value,
+            title: resourceTitle,
             url: document.getElementById("resourceUrl").value,
+            image: imagePath,
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
@@ -95,9 +115,19 @@ export default function SimpleTabs() {
         });
     }
     function submitFact(){
+         //upload image
+         let factTitle = document.getElementById("factTitle").value;
+         let imagePath = 'images/'+ factTitle;
+         let storageRef = firebase.storage().ref(imagePath);
+         let fileUpload = document.getElementById("factImage");
+       
+         let firstFile = evt.target.files[0] // upload the first file only
+         let uploadTask = storageRef.put(firstFile)
+         //save data to db
         firestore.collection("facts").add({
-            title: document.getElementById("factTitle").value,
+            title: factTitle,
             url: document.getElementById("factUrl").value,
+            image: imagePath,
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
@@ -107,10 +137,20 @@ export default function SimpleTabs() {
         });
     }
     function submitEvent(){
+         //upload image
+         let eventTitle = document.getElementById("eventTitle").value;
+         let imagePath = 'images/'+ eventTitle + date;
+         let storageRef = firebase.storage().ref(imagePath);
+         let fileUpload = document.getElementById("eventImage");
+       
+         let firstFile = evt.target.files[0] // upload the first file only
+         let uploadTask = storageRef.put(firstFile)
+         //save data to db
         firestore.collection("events").add({
-            title: document.getElementById("eventTitle").value,
+            title: eventTitle,
             date: document.getElementById("eventDate").value,
             location: document.getElementById("eventLocation").value,
+            image: imagePath,
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
@@ -120,10 +160,20 @@ export default function SimpleTabs() {
         });
     }
     function submitEvent(){
+        //upload image
+        let storyName = document.getElementById("storyName").value;
+        let imagePath = 'images/'+ storyName +storyAge;
+        let storageRef = firebase.storage().ref(imagePath);
+        let fileUpload = document.getElementById("storyImage");
+      
+        let firstFile = evt.target.files[0] // upload the first file only
+        let uploadTask = storageRef.put(firstFile)
+        //save data to db
         firestore.collection("events").add({
-            name: document.getElementById("storyName").value,
+            name: storyName,
             age: document.getElementById("storyAge").value,
             story: document.getElementById("storyStory").value,
+            image: imagePath,
         })
         .then(function(docRef) {
             console.log("Document written with ID: ", docRef.id);
@@ -147,9 +197,9 @@ export default function SimpleTabs() {
       <TabPanel value={value} index={0}>
         <form id="articleform">
             Title: <input id="articleTitle"type="text" name="title" value="Title"/><br></br>
-            Url: <input id="artucleUrl"type="text" name="url" value="Url"/><br></br>
+            Url: <input id="artucleText"type="text" name="url" value="Text"/><br></br>
             Featured: <input id="articleFeatured" type="checkbox" name="featured" checked/><br></br>
-            Image: <input type="file" name="image" accept="image/*"/><br></br>
+            Image: <input id="articleImage" type="file" name="image" accept="image/*"/><br></br>
             <input type="submit" id="submitArticle"/>
         </form>
       </TabPanel>
@@ -157,7 +207,7 @@ export default function SimpleTabs() {
         <form id="resourceform">
             Title: <input id="resourceTitle" type="text" name="title" value="Title"/><br></br>
             Url: <input id="resourceUrl" type="text" name="url" value="Url"/><br></br>
-            Image: <input type="file" name="image" accept="image/*"/><br></br>
+            Image: <input id="resourceImage" type="file" name="image" accept="image/*"/><br></br>
             <input type="submit" id="submitResource"/>
         </form>
       </TabPanel>
@@ -165,14 +215,14 @@ export default function SimpleTabs() {
       <form id="factform">
             Title: <input id="factTitle" type="text" name="title" value="Title"/><br></br>
             Url: <input id="factUrl" type="text" name="url" value="Url"/><br></br>
-            Image: <input type="file" name="image" accept="image/*"/><br></br>
+            Image: <input id="factImage" type="file" name="image" accept="image/*"/><br></br>
             <input type="submit" id="submitFact"/>
         </form>
       </TabPanel>
       <TabPanel value={value} index={3}>
       <form id="eventform">
             Title: <input id="eventTitle" type="text" name="title" value="Title"/><br></br>
-            Image: <input  type="file" name="image" accept="image/*"/><br></br>
+            Image: <input  id="eventImage" type="file" name="image" accept="image/*"/><br></br>
             Location: <input id="eventLocation" type="text" name="location" value="Location"/><br></br>
             Date: <input id="eventDate" type="date" name="date" /><br></br>
             <input type="submit" id="submitEvent"/>
@@ -181,7 +231,7 @@ export default function SimpleTabs() {
       <TabPanel value={value} index={4}>
       <form>
             Name: <input id="storyName" type="text" name="name" value="Name"/><br></br>
-            Image: <input type="file" name="image" accept="image/*"/><br></br>
+            Image: <input id="storyImage" type="file" name="image" accept="image/*"/><br></br>
             Age: <input id="storyAge" type="text" name="age" value="Age"/><br></br>
             Story: <input id="storyStory" type="text" name="story" value=""/><br></br>
             <input type="submit" id="submitStory"/>
