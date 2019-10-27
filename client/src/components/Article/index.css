@@ -1,0 +1,12 @@
+.specific-article {
+  text-align: center;
+}
+.specific-article #title {
+  color: #ed694b;
+}
+.specific-article #date {
+  color: #ed694b;
+}
+.specific-article #content {
+  margin-top: 15px;
+}
