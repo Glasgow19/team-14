@@ -22,7 +22,10 @@ const Main = styled.section`
 	width: 100%;
 `;
 
-
+const titleContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
 
 
 const App = () => {
@@ -30,8 +33,9 @@ const App = () => {
 		<Router>
 			<Container >
 				<Main>
+          
 					<NavBar />
-          <PageTitle title="dressCode" />
+          <PageTitle as={Link} to="/" title="dressCode" />
           {/* <Backbutton/> */}
 					<RouteConfig />
           <Footer />

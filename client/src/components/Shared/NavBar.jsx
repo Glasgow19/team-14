@@ -8,7 +8,7 @@ var styles = {
 		width: '18px',
 		height: '18px',
 		right: '18px',
-		top: '10px'
+		top: '18px'
 	},
 	bmBurgerBars: {
 		background: '#fff'
