@@ -6,8 +6,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import firestore from "../../config/firebase.init";
-import storage from "../../config/firebase.init";
+import {firestore} from "../../config/firebase.init";
+// import storage from "../../config/firebase.init";
 import firebase from "firebase/app";
 
 
@@ -78,7 +78,8 @@ export default function SimpleTabs() {
     //   featured: document.getElementById("articleFeatured").checked,
     //   image: imagePath
     // }); 
-    firestore.collection("articles").set({
+    const db = firestore
+    const a = db.collection("articles").add({
         title: articleTitle,
         text: document.getElementById("articleText").value,
         featured: document.getElementById("articleFeatured").checked,
