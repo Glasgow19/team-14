@@ -14,6 +14,7 @@ import { RouteConfig } from './routes/';
 import { Container } from '@material-ui/core';
 import Backbutton from './components/Shared/backbutton';
 import PageTitle from "./components/PageTitle";
+import Footer from "./components/Footer";
 
 const Main = styled.section`
   display: block;
@@ -31,6 +32,7 @@ const App = () => {
           {/* <Backbutton/> */}
 					<RouteConfig />
           <PageTitle title="Home" />
+          <Footer />
 				</Main>
 			</Container>
 		</Router>
