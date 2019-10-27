@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { firestore } from '../../config/firebase.init';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 		flexWrap: 'wrap',
 		justifyContent: 'space-around',
 		overflow: 'hidden',
-        backgroundColor: theme.palette.background.paper,
+		backgroundColor: theme.palette.background.paper
 	},
 	gridList: {
 		flexWrap: 'nowrap',
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 		transform: 'translateZ(0)'
 	},
 	title: {
-		color: "white"
+		color: 'white'
 	},
 	titleBar: {
 		background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)'
@@ -33,7 +34,7 @@ const Header = styled.h5`
 	font-family: Questrial;
 	font-size: 20px;
 	margin-top: 30px;
-    margin-bottom: 0;
+	margin-bottom: 0;
 	font-weight: normal;
 	font-stretch: normal;
 	font-style: normal;
@@ -44,39 +45,27 @@ const Header = styled.h5`
 
 export default function ScrollContainer(props) {
 	const classes = useStyles();
-    const image = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.vfwiFzWrPiiene-4DbUaFAHaE8%26pid%3DApi&f=1"
 
-	const tileData = [
-		{
-			img: image,
-			title: 'Image',
-			author: 'author'
-		},
-		{
-			img: image,
-			title: 'Image',
-			author: 'author'
-		},
-		{
-			img: image,
-			title: 'Image',
-			author: 'author'
-		},
-		{
-			img: image,
-			title: 'Image',
-			author: 'author'
-		}
-	];
-	if (props.arr === undefined){
+	// useEffect(() => {
+	//     const db = firestore
+	//     const a = db.collection("articles").add({
+	//         name: "firebase test"
+	//       });
+
+	//     return () => {
+
+	//     };
+	// }, [])
+
+	if (props.arr === undefined) {
 		return null;
 	}
 	return (
-		<div className={classes.root} style = {{background: props.bg}}>
-            <Header>{props.title}</Header>
+		<div className={classes.root} style={{ background: props.bg }}>
+			<Header>{props.title}</Header>
 			<GridList className={classes.gridList} cols={2.5}>
 				{props.arr.map((tile) => (
-					<GridListTile style={{padding:15, marginTop: 10}} key={tile.img}>
+					<GridListTile style={{ padding: 15, marginTop: 10 }} key={tile.img}>
 						<img src={tile.img} alt={tile.title} />
 						<GridListTileBar
 							title={tile.title}
@@ -93,6 +82,9 @@ export default function ScrollContainer(props) {
 					</GridListTile>
 				))}
 			</GridList>
+			<div style={{ width: '80%' , color: '#fff', display: 'flex', justifyContent: 'left', float:'left' }}>
+				<a style= {{display: 'flex', justifyContent: 'left' , float:'left', }}> see all </a>
+			</div>
 		</div>
 	);
 }
