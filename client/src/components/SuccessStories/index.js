@@ -9,7 +9,7 @@ const StoryList = () => {
 
   useEffect(() => {
     firestore
-      .collection("stories")
+      .collection("userStories")
       .get()
       .then(function(userStories) {
         const arr = [];

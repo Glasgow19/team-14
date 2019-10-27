@@ -1,39 +1,34 @@
 .story-component {
-    background-color: #74529e;
-    display: block;
-    margin: auto;
-    padding: 10px;
-    height: 150px;
-    position: relative;
-  }
+  background-color: #a7358b;
+  color:black;
+  display: block;
+  margin: auto;
+  padding: 10px;
+  height: 150px;
+  position: relative;
+}
 
-  #url{
-    font-style: italic;
-    text-decoration: underline;
-  }
+#story-override {
+  background-color: #ed694b !important;
+}
 
-  #story-override {
-    background-color: #f9b222 !important;
-  }
-  
-  .story-component .title {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  
-  .story-component img {
-    float: left;
-  }
-  
-  .story-component .content {
-    float: left;
-    margin-top: 30px;
-    margin-left: 20px;
-  }
-  
-  .story-component .content h3 {
-    margin-bottom: 4px;
-    margin-top: 4px;
-  }
+.story-component .title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
-  
+.truncate {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.story-component #imgRight {
+  float: right;
+  margin-left: 20px;
+}
+.story-component #imgLeft {
+  float: left;
+  margin-right: 20px;
+}

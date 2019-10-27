@@ -3,24 +3,26 @@ import "./index.css";
 import PropTypes from "prop-types";
 
 const Story = props => {
-  let isPurple = true;
-  let i = parseInt(props.index);
-  if (i % 2 === 0) {
-    isPurple = false;
-  }
+    const isLeft = props.index % 2 === 1;
 
-  let optionalId = "";
-  if (!isPurple) {
-    optionalId = "story-override";
-  }
+    let imgFloat;
+    let componentColour = "";
+    if (isLeft) {
+      imgFloat = "imgLeft";
+    } else {
+      componentColour = "story-override";
+      imgFloat = "imgRight";
+    }
 
   return (
-    <div className="story-component" id={optionalId}>
-      <img alt="" src={props.image} />
+    <div className="story-component" id={componentColour}>
       <div className="content">
         <h2 className="title">{props.name}</h2>
         <h2 className="age">{props.age}</h2>
         <h2 className="text">{props.story}</h2>
+      </div>
+      <div>
+      <img alt="" src={props.image} />
       </div>
     </div>
   );
