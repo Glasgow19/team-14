@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import HeroComponent from './hero.section';
-import ScrollContainer from '../Shared/ScrollContainer'
+import HeroComponent from '../Shared/hero.section';
+import ScrollContainer from '../Shared/ScrollContainer';
+import { firestore } from '../../config/firebase.init';
 
 const Container = styled.div`
 	display: flex;
@@ -10,14 +11,72 @@ const Container = styled.div`
 	height: fit-content;
 `;
 
+const image =
+	'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.vfwiFzWrPiiene-4DbUaFAHaE8%26pid%3DApi&f=1';
+
+const tileData = [
+	{
+		img: image,
+		title: 'Image',
+		author: 'author'
+	},
+	{
+		img: image,
+		title: 'Image',
+		author: 'author'
+	},
+	{
+		img: image,
+		title: 'Image',
+		author: 'author'
+	},
+	{
+		img: image,
+		title: 'Image',
+		author: 'author'
+	}
+];
+
 const Home = () => {
+	const [ articleArray, setArticleArray ] = useState([]);
+	const [ loading, setLoading ] = useState(true);
+	useEffect(() => {
+		firestore
+			.collection('articles')
+			.get()
+			.then(function(articles) {
+				const arr = [];
+				articles.forEach((article) => {
+					article = article.data();
+					if (article.featured) {
+						console.log('Found featured article!!');
+						arr.push({
+							featured: true,
+							title: article.title,
+							text: article.text,
+							date: article.date,
+							imgSrc: article.imageUrl,
+							backgroundColour: 'purple'
+						});
+					}
+				});
+				setArticleArray(arr);
+			})
+			.then(() => {
+				console.log('Error array empty!!', articleArray);
+				setLoading(false);
+			});
+		return () => {};
+	}, []);
+
 	return (
 		<div>
-			<HeroComponent />
-			<ScrollContainer bg="#F8AD18" title="Learn more" />
-			<ScrollContainer bg="#e06662" title="Success stories" />
-			<ScrollContainer bg="#62e0b4" title="Featured Articles" />
-			<ScrollContainer bg="#62cde0" title="Resources" />
+			<HeroComponent img="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fdisruptionmag.com%2Fwp-content%2Fuploads%2F2017%2F01%2Fgirls-who-code-3.jpg&f=1&nofb=1" />
+			<ScrollContainer bg="#F8AD18" arr={tileData} title="Learn more" />
+			<ScrollContainer bg="#62cde0" arr={tileData} title="Facts" />
+			<ScrollContainer bg="#e06662" arr={tileData} title="Success stories" />
+			<ScrollContainer bg="#62e0b4" arr={tileData} title="Featured Articles" />
+			<ScrollContainer bg="#62cde0" arr={tileData} title="Resources" />
 		</div>
 	);
 };

@@ -9,9 +9,10 @@ import Home from './components/Home/index';
 import NavBar from './components/Shared/NavBar';
 import ScrollContainer from './components/Shared/ScrollContainer';
 import Event from './components/Event';
-import Article from './components/Article'
-import {RouteConfig} from './routes/'
-
+import Article from './components/Article';
+import { RouteConfig } from './routes/';
+import { Container } from '@material-ui/core';
+import Backbutton from './components/Shared/backbutton';
 
 const Main = styled.section`
 	display: block;
@@ -19,14 +20,19 @@ const Main = styled.section`
 	width: 100%;
 `;
 
+
 const App = () => {
 	return (
 		<Router>
-			<NavBar />
-      <RouteConfig/>
+			<Container>
+				<Main>
+					<NavBar />
+          {/* <Backbutton/> */}
+					<RouteConfig />
+				</Main>
+			</Container>
 		</Router>
 	);
-
 };
 
 export default App;

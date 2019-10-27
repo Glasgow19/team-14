@@ -1,0 +1,39 @@
+.resource-component {
+    background-color: #a7358b;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    height: 150px;
+    position: relative;
+  }
+
+  #url{
+    font-style: italic;
+    text-decoration: underline;
+  }
+
+  #resource-override {
+    background-color: white !important;
+  }
+  
+  .resource-component .title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .resource-component img {
+    float: left;
+  }
+  
+  .resource-component .content {
+    float: left;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+  
+  .resource-component .content h3 {
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+
+  
