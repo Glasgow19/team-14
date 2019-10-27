@@ -1,4 +1,5 @@
 import Event from "../components/Event/";
+import EventList from "../components/EventList/";
 import Article from "../components/Article/";
 import ArticleList from "../components/ArticleList";
 import Home from "../components/Home/";
@@ -11,27 +12,29 @@ export const routes = [
     component: Home
   },
   {
-    path: "/events",
+    path: "/event",
     component: Event
+  },
+  {
+    path: "/events",
+    component: EventList
   },
   {
     path: "/article",
     component: Article
-  },
-
-  {
-    path: "/admin",
-    component: Home
   },
   {
     path: "/articles",
     component: ArticleList
   },
   {
+    path: "/admin",
+    component: Home
+  },
+  {
     path: "/info",
     component: FactList
   },
-
   {
     path: "/story",
     component: Story
