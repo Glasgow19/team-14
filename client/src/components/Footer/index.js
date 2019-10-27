@@ -8,6 +8,7 @@ const Footer = props => {
       <a href="/info">Facts</a>
       <a href="/story">Success Stories</a>
       <a href="/articles">Articles</a>
+      <a href="/resources">Resources</a>
     </div>
   );
 };

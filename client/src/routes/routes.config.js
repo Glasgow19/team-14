@@ -5,6 +5,8 @@ import ArticleList from "../components/ArticleList";
 import Home from "../components/Home/";
 import Story from "../components/SuccessStory/StoryDetailView";
 import FactList from "../components/FactList";
+import Resource from "../components/Resource";
+import ResourceList from "../components/ResourceList";
 
 export const routes = [
   {
@@ -38,5 +40,13 @@ export const routes = [
   {
     path: "/story",
     component: Story
+  },
+  {
+    path: "/resource",
+    component: Resource
+  },
+  {
+    path: "/resources",
+    component: ResourceList
   }
 ];
