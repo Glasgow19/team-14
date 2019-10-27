@@ -1,8 +1,9 @@
-import styled from 'styled-components';
-import React from 'react';
-import { slide as Menu } from 'react-burger-menu';
+import styled from "styled-components";
+import React from "react";
+import { slide as Menu } from "react-burger-menu";
 
 var styles = {
+
 	bmBurgerButton: {
 		position: 'fixed',
 		width: '18px',
@@ -70,6 +71,7 @@ const NavBar = (props) => {
 			</Menu>
 		</div>
 	);
+
 };
 
 export default NavBar;
