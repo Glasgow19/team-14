@@ -38,7 +38,7 @@ const FactList = () => {
     <div>
       {loading && <p>Loading</p>}
       {!loading && (
-        <div style={{overflow:'hidden', display: '-webkit-box', 'WebkitBoxOrient': 'vertical', WebkitLineClamp: 5}}>
+        <div style={{overflow:'hidden', display: 'WebkitBox', 'WebkitBoxOrient': 'vertical', WebkitLineClamp: 5}}>
           {factArray.map((fact, index) => (
             <Fact
               key={index}
