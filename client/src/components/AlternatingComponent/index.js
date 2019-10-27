@@ -3,7 +3,7 @@ import "./index.css";
 import PropTypes from "prop-types";
 
 const AlternatingComponent = props => {
-  const isLeft = props.imgPosition === "left";
+  const isLeft = props.index % 2 === 1;
 
   let imgFloat;
   let componentColour = "";
@@ -30,8 +30,8 @@ const AlternatingComponent = props => {
 export default AlternatingComponent;
 
 AlternatingComponent.propTypes = {
+  index: PropTypes.number,
   title: PropTypes.string,
   text: PropTypes.string,
   imgSrc: PropTypes.string,
-  imgPosition: PropTypes.oneOf(["left", "right"])
 };

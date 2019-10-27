@@ -1,37 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { firestore } from "../../config/firebase.init";
-import AlternatingComponent from "../AlternatingComponent"
+import AlternatingComponent from "./../AlternatingComponent";
 
 const ArticleList = () => {
   const [loading, setLoading] = useState(true);
   const [articleArray, setArticleArray] = useState([]);
+  console.log(articleArray.length);
 
   useEffect(() => {
     firestore
       .collection("articles")
       .get()
-      .then(articles =>
+      .then(function(articles) {
+        const arr = [];
         articles.forEach(article => {
           article = article.data();
-          const articleDate = "Today";
-          const articleImgUrl = "http://via.placeholder.com/150";
-          const articleTitle = article.title;
+          const articleDate = article.date;
+          const articleImageUrl = article.imgSrc;
           const articleText = article.text;
-          console.log(articleTitle);
+          const articleTitle = article.title;
 
-          setArticleArray(
-            articleArray.concat([
-              {
-                title: articleTitle,
-                date: articleDate,
-                imgSrc: articleImgUrl,
-                text: articleText,
-                backgroundColour: "purple"
-              }
-            ])
-          );
-        })
-      )
+          arr.push({
+            title: articleTitle,
+            text: articleText,
+            date: articleDate,
+            imgSrc: articleImageUrl,
+            backgroundColour: "purple"
+          });
+        });
+        setArticleArray(arr);
+      })
       .then(() => {
         setLoading(false);
       });
@@ -48,9 +46,10 @@ const ArticleList = () => {
               key={index}
               index={index}
               title={article.title}
-              date={article.date}
               text={article.text}
-              imgSrc={article.imgSrc}
+              date={article.date}
+              imgSrc='http://via.placeholder.com/150'
+              backgroundColour={article.backgroundColour}
             />
           ))}
         </div>
