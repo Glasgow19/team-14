@@ -20,7 +20,7 @@ const storage = firebase.storage();
 
 export {
   firestore,
-  storage
+  storage,
 };
 
 
