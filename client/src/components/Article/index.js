@@ -15,10 +15,14 @@ const Article = props => {
   }
   return (
     <div className="specific-article" id={optionalId}>
-      <h1 id="title">{props.title}</h1>
-      <h3 id="date">{props.date}</h3>
+      <h1 id="title">What can I do with a software engineering degree?</h1>
+      <h3 id="date">Today</h3>
       <img alt="" src={props.imgSrc}></img>
-      <p id="content">{props.text}</p>
+      <p id="content-article">
+        THIS IS THE ARTICLE TEXT, IMAGINE THAT IT IS VERY, EXTREODRINARILY
+        INSPIRING
+      </p>
+      <br />
     </div>
   );
 };

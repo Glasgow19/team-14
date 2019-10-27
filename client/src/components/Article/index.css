@@ -1,13 +1,15 @@
 .specific-article {
   text-align: center;
-  background-color: #a7358b;
   display: block;
   margin: auto;
   padding: 10px;
   height: 150px;
   position: relative;
+  color: #ed8b4b;
 }
 
-#background-override {
-  background-color: #ed8b4b !important;
+#content-article {
+  position: relative;
+  margin-top: -10px;
+  color: black;
 }
