@@ -7,6 +7,7 @@ import { firestore } from "./config/firebase.init";
 import Event from "./components/Event";
 import Home from "./components/Home/hero.section";
 import NavBar from "./components/Shared/NavBar";
+import EventList from "./components/EventList"
 
 const Main = styled.section`
   display: block;
@@ -17,23 +18,23 @@ const Main = styled.section`
 const App = () => {
   const articles = [];
 
-  useEffect(() => {
-    firestore
-      .collection("articles")
-      .get()
-      .then(data =>
-        data.forEach(doc => {
-          console.log(doc.data());
-        })
-      );
-    return () => {};
-  }, []);
+  // useEffect(() => {
+  //   firestore
+  //     .collection("articles")
+  //     .get()
+  //     .then(data =>
+  //       data.forEach(doc => {
+  //         console.log(doc.data());
+  //       })
+  //     );
+  //   return () => {};
+  // }, []);
 
   return (
     <div>
       <NavBar />
       <Home></Home>
-
+      <EventList/>
       <Event
         title="Event 1"
         location="Glasgow"
