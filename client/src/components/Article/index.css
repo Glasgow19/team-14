@@ -1,12 +1,13 @@
 .specific-article {
   text-align: center;
+  background-color: #a7358b;
+  display: block;
+  margin: auto;
+  padding: 10px;
+  height: 150px;
+  position: relative;
 }
-.specific-article #title {
-  color: #ed694b;
-}
-.specific-article #date {
-  color: #ed694b;
-}
-.specific-article #content {
-  margin-top: 15px;
+
+#background-override {
+  background-color: #ed8b4b !important;
 }

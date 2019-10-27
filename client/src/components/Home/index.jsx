@@ -45,11 +45,11 @@ const Home = () => {
 		return () => {};
 	  }, []);
 
-	//   const yo = [1, 2, 3];
 	return (
 		<div>
 			<HeroComponent />
 			<ScrollContainer bg="#F8AD18" title="Learn more" />
+			<ScrollContainer bg="#62cde0" title="Facts" />
 			<ScrollContainer bg="#e06662" title="Success stories" />
 			<ScrollContainer bg="#62e0b4" arr={articleArray} title="Featured Articles" />
 			<ScrollContainer bg="#62cde0" title="Resources" />

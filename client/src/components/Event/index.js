@@ -12,7 +12,7 @@ const Event = props => {
   let optionalId = "";
   let someColour = "date white";
   if (!isPurple) {
-    optionalId = "background-override";
+    optionalId = "event-override";
     someColour = "date purple";
   }
 
