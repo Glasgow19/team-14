@@ -69,6 +69,11 @@ const NavBar = props => {
             <h3>Articles</h3>
           </a>
         </div>
+        <div id="resources" className="menu-item">
+          <a href="/resources">
+            <h3>Resources</h3>
+          </a>
+        </div>
       </Menu>
     </div>
   );
