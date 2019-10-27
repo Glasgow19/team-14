@@ -20,8 +20,8 @@ const AlternatingComponent = props => {
         <img id={imgFloat} alt="" src={props.imgSrc} />
       </div>
       <div>
-        <h2 className="title">{props.title}</h2>
-        <p className="truncate">{props.text}</p>
+        <h3 className="title">{props.title}</h3>
+        {/* <p className="truncate">{props.text}</p> */}
       </div>
     </div>
   );
