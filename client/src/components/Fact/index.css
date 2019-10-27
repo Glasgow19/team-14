@@ -1,11 +1,10 @@
 .fact-component {
-  background-color: #74529e;
-  display: block;
-  margin: auto;
-  padding: 10px;
-  height: 150px;
-  position: relative;
-}
+    background-color: #74529e;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    position: relative;
+  }
 
 #url {
   font-style: italic;
