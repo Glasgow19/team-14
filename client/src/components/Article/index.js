@@ -7,7 +7,7 @@ const Article = props => {
     <div className="specific-article">
       <h1 id="title">{props.title}</h1>
       <h3 id="date">{props.date}</h3>
-      <img alt="" src={props.imgsrc}></img>
+      <img alt="" src={props.imgSrc}></img>
       <p id="content">{props.text}</p>
     </div>
   );
@@ -18,6 +18,6 @@ export default Article;
 Article.propTypes = {
   title: PropTypes.string,
   date: PropTypes.string,
-  imgsrc: PropTypes.string,
+  imgSrc: PropTypes.string,
   content: PropTypes.string
 };
