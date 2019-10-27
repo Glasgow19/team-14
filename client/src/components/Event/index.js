@@ -3,7 +3,11 @@ import "./index.css";
 import PropTypes from "prop-types";
 
 const Event = props => {
-  const isPurple = props.backgroundColour === "purple";
+  let isPurple = true;
+  let i = parseInt(props.index);
+  if (i % 2 == 0) {
+    isPurple = false;
+  }
 
   let optionalId = "";
   let someColour = "date white";
@@ -31,5 +35,5 @@ Event.propTypes = {
   location: PropTypes.string,
   date: PropTypes.string,
   imgSrc: PropTypes.string,
-  backgroundColour: PropTypes.oneOf(["purple", "white"])
+  index: PropTypes.number
 };
