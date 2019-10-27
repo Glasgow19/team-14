@@ -9,6 +9,18 @@ import Box from "@material-ui/core/Box";
 import { firestore } from "../../config/firebase.init";
 import firebase from "firebase/app";
 
+
+
+before(() => {
+  var config = {
+    apiKey: process.env.apiKey,
+    authDomain: "dress-code-7470f.firebaseapp.com",
+    databaseURL: "https://dress-code-7470f.firebaseio.com",
+    projectId: "dress-code-7470f",
+
+  };
+
+  
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -55,6 +67,8 @@ export default function SimpleTabs() {
   };
 
   function submitArticle(evt) {
+    var app = firebase.initializeApp(config);
+    db = firebase.firestore(app);
     //upload image
     let articleTitle = document.getElementById("articleTitle").value;
     let imagePath = "images/" + articleTitle;
@@ -73,7 +87,7 @@ export default function SimpleTabs() {
     //   featured: document.getElementById("articleFeatured").checked,
     //   image: imagePath
     // }); 
-    firestore
+    db
       .collection("articles")
       .add({
         title: articleTitle,
