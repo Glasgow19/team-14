@@ -57,6 +57,7 @@ export default function SimpleTabs() {
 
   function submitArticle(evt) {
     //upload image
+    evt.preventDefault()
     let articleTitle = document.getElementById("articleTitle").value;
     let imagePath = "images/" + articleTitle;
 
