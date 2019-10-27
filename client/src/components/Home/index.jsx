@@ -11,63 +11,62 @@ import { Container } from '@material-ui/core'
 // 	height: fit-content;
 // `;
 
+
 const image =
-	'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.vfwiFzWrPiiene-4DbUaFAHaE8%26pid%3DApi&f=1';
+  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.vfwiFzWrPiiene-4DbUaFAHaE8%26pid%3DApi&f=1";
 
 const tileData = [
-	{
-		img: image,
-		title: 'Image',
-		author: 'author'
-	},
-	{
-		img: image,
-		title: 'Image',
-		author: 'author'
-	},
-	{
-		img: image,
-		title: 'Image',
-		author: 'author'
-	},
-	{
-		img: image,
-		title: 'Image',
-		author: 'author'
-	}
+  {
+    img: image,
+    title: "Image",
+    author: "author"
+  },
+  {
+    img: image,
+    title: "Image",
+    author: "author"
+  },
+  {
+    img: image,
+    title: "Image",
+    author: "author"
+  },
+  {
+    img: image,
+    title: "Image",
+    author: "author"
+  }
 ];
 
 const Home = () => {
-	const [ articleArray, setArticleArray ] = useState([]);
-	const [ loading, setLoading ] = useState(true);
-	useEffect(() => {
-		firestore
-			.collection('articles')
-			.get()
-			.then(function(articles) {
-				const arr = [];
-				articles.forEach((article) => {
-					article = article.data();
-					if (article.featured) {
-						console.log('Found featured article!!');
-						arr.push({
-							featured: true,
-							title: article.title,
-							text: article.text,
-							date: article.date,
-							imgSrc: article.imageUrl,
-							backgroundColour: 'purple'
-						});
-					}
-				});
-				setArticleArray(arr);
-			})
-			.then(() => {
-				console.log('Error array empty!!', articleArray);
-				setLoading(false);
-			});
-		return () => {};
-	}, []);
+  const [articleArray, setArticleArray] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    firestore
+      .collection("articles")
+      .get()
+      .then(function(articles) {
+        const arr = [];
+        articles.forEach(article => {
+          article = article.data();
+          if (article.featured) {
+            arr.push({
+              featured: true,
+              title: article.title,
+              text: article.text,
+              date: article.date,
+              imgSrc: article.imageUrl,
+              backgroundColour: "purple"
+            });
+          }
+        });
+        setArticleArray(arr);
+      })
+      .then(() => {
+        setLoading(false);
+      });
+    return () => {};
+  }, []);
 
 	return (
 		<Container>
@@ -81,6 +80,7 @@ const Home = () => {
 			
 		
 	);
+
 };
 
 export default Home;

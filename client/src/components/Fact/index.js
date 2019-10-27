@@ -15,6 +15,7 @@ const Fact = (props) => {
 		optionalId = 'fact-override';
 	}
 
+
 	return (
 		// <div className="fact-component" id={optionalId}>
 		//   <img alt="" src={props.img} />
@@ -26,12 +27,15 @@ const Fact = (props) => {
 			<PaperComponent text={props.title} />
 		</div>
 	);
+
 };
 
 export default Fact;
 
 Fact.propTypes = {
+
 	title: PropTypes.string,
 	img: PropTypes.string,
 	url: PropTypes.string
+
 };
