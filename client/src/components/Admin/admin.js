@@ -67,7 +67,7 @@ export default function SimpleTabs() {
     })
     
     //save data to db
-    firebase.database().ref('articles/').set({
+    firebase.database().ref('articles/').add({
       title: articleTitle,
       text: document.getElementById("articleText").value,
       featured: document.getElementById("articleFeatured").checked,
