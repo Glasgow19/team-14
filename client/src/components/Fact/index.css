@@ -6,33 +6,31 @@
     position: relative;
   }
 
-  #url{
-    font-style: italic;
-    text-decoration: underline;
-  }
+#url {
+  font-style: italic;
+  text-decoration: underline;
+}
 
-  #fact-override {
-    background-color: #f9b222 !important;
-  }
-  
-  .fact-component .title {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  
-  .fact-component img {
-    float: left;
-  }
-  
-  .fact-component .content {
-    float: left;
-    margin-top: 30px;
-    margin-left: 20px;
-  }
-  
-  .fact-component .content h3 {
-    margin-bottom: 4px;
-    margin-top: 4px;
-  }
+#fact-override {
+  background-color: #f9b222 !important;
+}
 
-  
+.fact-component .title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.fact-component img {
+  float: left;
+}
+
+.fact-component .content {
+  float: left;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.fact-component .content h3 {
+  margin-bottom: 4px;
+  margin-top: 4px;
+}

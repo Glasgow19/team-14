@@ -5,7 +5,6 @@ import AlternatingComponent from "./../AlternatingComponent";
 const ArticleList = () => {
   const [loading, setLoading] = useState(true);
   const [articleArray, setArticleArray] = useState([]);
-  console.log(articleArray.length);
 
   useEffect(() => {
     firestore
@@ -24,7 +23,7 @@ const ArticleList = () => {
             title: articleTitle,
             text: articleText,
             date: articleDate,
-            imgSrc: articleImageUrl,
+            imgSrc: articleImageUrl
           });
         });
         setArticleArray(arr);
@@ -47,7 +46,7 @@ const ArticleList = () => {
               title={article.title}
               text={article.text}
               date={article.date}
-              imgSrc='http://via.placeholder.com/150'
+              imgSrc="http://via.placeholder.com/150"
               backgroundColour={article.backgroundColour}
             />
           ))}

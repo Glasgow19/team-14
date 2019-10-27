@@ -5,7 +5,6 @@ import Fact from "./../Fact";
 const FactList = () => {
   const [loading, setLoading] = useState(true);
   const [factArray, setFactArray] = useState([]);
-  console.log(factArray.length);
 
   useEffect(() => {
     firestore
