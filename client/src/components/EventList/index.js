@@ -1,29 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { firestore } from "../../config/firebase.init";
 import Event from "./../Event";
 
 const EventList = () => {
-    // const events = [];
-    useEffect(() => {
-        firestore
-            .collection("events")
-            .get()
-            .then(data =>
-                data.map(doc => { 
-                    events.push(doc.data)
-                    let event = doc.data();
-                    let title = event.title;
-                    let image = event.image;
-                    let date = event.date;
-                    let location = event.location;
-                    Event(title = title, image=image,date=date,location=location)
-                    console.log(event,title,image,date,location)
-        })
-            );
-        return () => { };
-    }, []);
+  const [loading, setLoading] = useState(true);
+  const [eventArray, setEventArray] = useState([]);
 
-    return <p>Hi</p>;
+  useEffect(() => {
+    firestore
+      .collection("events")
+      .get()
+      .then(events =>
+        events.forEach(event => {
+          event = event.data();
+          const eventDate = "Today";
+          const eventImageUrl = "http://via.placeholder.com/150";
+          const eventLocation = "Glasgow";
+          const eventTitle = event.title;
+
+          setEventArray(
+            eventArray.concat([
+              {
+                title: eventTitle,
+                location: eventLocation,
+                date: eventDate,
+                imgSrc: eventImageUrl,
+                backgroundColour: "purple"
+              }
+            ])
+          );
+        })
+      )
+      .then(() => {
+        setLoading(false);
+      });
+    return () => {};
+  }, []);
+
+  return (
+    <div>
+      {loading && <p>Loading</p>}
+      {!loading && (
+        <div>
+          {eventArray.map((event, index) => (
+            <Event
+              key={index}
+              index={index}
+              title={event.title}
+              location={event.location}
+              date={event.date}
+              imgSrc={event.imgSrc}
+              backgroundColour={event.backgroundColour}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default EventList;

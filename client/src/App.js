@@ -7,7 +7,7 @@ import { firestore } from "./config/firebase.init";
 import Event from "./components/Event";
 import Home from "./components/Home/hero.section";
 import NavBar from "./components/Shared/NavBar";
-import EventList from "./components/EventList"
+import EventList from "./components/EventList";
 
 const Main = styled.section`
   display: block;
@@ -34,8 +34,8 @@ const App = () => {
     <div>
       <NavBar />
       <Home></Home>
-      <EventList/>
-      <Event
+      <EventList />
+      {/* <Event
         title="Event 1"
         location="Glasgow"
         date="27 Oct"
@@ -57,7 +57,7 @@ const App = () => {
         date="29 Oct"
         imgSrc="http://via.placeholder.com/150"
         backgroundColour="white"
-      />
+      /> */}
 
       {articles.forEach(a => console.log(a))}
 
