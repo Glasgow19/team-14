@@ -4,9 +4,10 @@ import "./index.css";
 const Footer = props => {
   return (
     <div id="footer">
-      <a href="#">Home</a>
-      <a href="#">Home2</a>
-      <a href="#">Home3</a>
+      <a href="/">Dresscode</a>
+      <a href="/info">Facts</a>
+      <a href="/story">Success Stories</a>
+      <a href="/articles">Articles</a>
     </div>
   );
 };

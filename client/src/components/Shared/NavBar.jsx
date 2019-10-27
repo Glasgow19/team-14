@@ -47,24 +47,27 @@ var styles = {
 
 const NavBar = props => {
   return (
-    // <p style= {{marginTop:0}}>test</p>
     <div>
       <Menu right styles={styles}>
         <div id="home" className="menu-item">
-          <a href="/">Home</a>
-          <br />
+          <a href="/">
+            <h3>Home</h3>
+          </a>
         </div>
         <div id="info" className="menu-item">
-          <a href="/info">More Info</a>
-          <br />
+          <a href="/info">
+            <h3>Facts</h3>
+          </a>
         </div>
         <div id="story" className="menu-item">
-          <a href="/story">Success stories</a>
-          <br />
+          <a href="/story">
+            <h3>Success Stories</h3>
+          </a>
         </div>
         <div id="articles" className="menu-item">
-          <a href="/articles">Read articles</a>
-          <br />
+          <a href="/articles">
+            <h3>Articles</h3>
+          </a>
         </div>
       </Menu>
     </div>
