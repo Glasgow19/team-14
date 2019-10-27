@@ -17,8 +17,9 @@ const Container = styled.div`
 		font-family: 'Questrial', sans-serif;
 		line-height: 0.8;
 		font-size: 40px;
-		background-color: rgba(255, 255, 255, 0.82);
+		background-color: rgba(255, 255, 255, 0.6);
 		padding: 23px 10px;
+        color: #a7358b;
 	}
 `;
 
@@ -28,12 +29,12 @@ const HeroSection = () => {
 	return (
 		<Container>
              
-			<img style= {{height: '100%'}}
-				src={'https://www.uri.edu/programs/wp-content/uploads/programs/sites/3/2014/04/feat_img_comp_sci.jpg'}
+			<img style= {{height: '100%', width: '100%'}}
+				src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fdisruptionmag.com%2Fwp-content%2Fuploads%2F2017%2F01%2Fgirls-who-code-3.jpg&f=1&nofb=1'}
 				alt="img"
 			/>
 			<div>
-				SAMPLE<br />TEXT
+				Code and<br /> change the world!
 			</div>
 		</Container>
 	);
