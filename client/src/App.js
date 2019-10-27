@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import STYLES from "./App.css";
 // import { RouteConfig } from './routes';
-import styled from "styled-components";
-import { BrowserRouter as Router } from "react-router-dom";
-import { firestore } from "./config/firebase.init";
-import Event from "./components/Event";
-import Home from "./components/Home/hero.section";
-import NavBar from "./components/Shared/NavBar";
+import styled from 'styled-components';
+import { BrowserRouter as Router } from 'react-router-dom'
+import {firestore} from './config/firebase.init'
+import Home from './components/Home/index'
+import NavBar from './components/Shared/NavBar' 
+import ScrollContainer from './components/Shared/ScrollContainer';
+import Event from './components/Event'
+
 
 const Main = styled.section`
   display: block;
