@@ -25,7 +25,6 @@ const ArticleList = () => {
             text: articleText,
             date: articleDate,
             imgSrc: articleImageUrl,
-            backgroundColour: "purple"
           });
         });
         setArticleArray(arr);
