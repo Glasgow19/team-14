@@ -214,9 +214,9 @@ export default function SimpleTabs() {
       <TabPanel value={value} index={0}>
         <form id="articleform">
           Title:{" "}
-          <input id="articleTitle" type="text" name="title" value="Title" />
+          <input id="articleTitle" type="text" name="title" />
           <br></br>
-          Url: <input id="artucleText" type="text" name="url" value="Text" />
+          Url: <input id="artucleText" type="text" name="url"  />
           <br></br>
           Featured:{" "}
           <input id="articleFeatured" type="checkbox" name="featured" checked />
@@ -230,9 +230,9 @@ export default function SimpleTabs() {
       <TabPanel value={value} index={1}>
         <form id="resourceform">
           Title:{" "}
-          <input id="resourceTitle" type="text" name="title" value="Title" />
+          <input id="resourceTitle" type="text" name="title"  />
           <br></br>
-          Url: <input id="resourceUrl" type="text" name="url" value="Url" />
+          Url: <input id="resourceUrl" type="text" name="url" />
           <br></br>
           Image:{" "}
           <input id="resourceImage" type="file" name="image" accept="image/*" />
@@ -242,9 +242,9 @@ export default function SimpleTabs() {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <form id="factform">
-          Title: <input id="factTitle" type="text" name="title" value="Title" />
+          Title: <input id="factTitle" type="text" name="title" />
           <br></br>
-          Url: <input id="factUrl" type="text" name="url" value="Url" />
+          Url: <input id="factUrl" type="text" name="url" />
           <br></br>
           Image:{" "}
           <input id="factImage" type="file" name="image" accept="image/*" />
@@ -255,7 +255,7 @@ export default function SimpleTabs() {
       <TabPanel value={value} index={3}>
         <form id="eventform">
           Title:{" "}
-          <input id="eventTitle" type="text" name="title" value="Title" />
+          <input id="eventTitle" type="text" name="title" />
           <br></br>
           Image:{" "}
           <input id="eventImage" type="file" name="image" accept="image/*" />
@@ -275,14 +275,14 @@ export default function SimpleTabs() {
       </TabPanel>
       <TabPanel value={value} index={4}>
         <form>
-          Name: <input id="storyName" type="text" name="name" value="Name" />
+          Name: <input id="storyName" type="text" name="name"  />
           <br></br>
           Image:{" "}
           <input id="storyImage" type="file" name="image" accept="image/*" />
           <br></br>
-          Age: <input id="storyAge" type="text" name="age" value="Age" />
+          Age: <input id="storyAge" type="text" name="age"  />
           <br></br>
-          Story: <input id="storyStory" type="text" name="story" value="" />
+          Story: <input id="storyStory" type="text" name="story" />
           <br></br>
           <input type="submit" id="submitStory" onClick={submitStory} />
         </form>
