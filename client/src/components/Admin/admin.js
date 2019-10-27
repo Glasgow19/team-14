@@ -58,11 +58,14 @@ export default function SimpleTabs() {
     //upload image
     let articleTitle = document.getElementById("articleTitle").value;
     let imagePath = "images/" + articleTitle;
+
     let storageRef = firebase.storage().ref(imagePath);
     let fileUpload = document.getElementById("articleImage");
-
-    let firstFile = evt.target.files[0]; // upload the first file only
-    let uploadTask = storageRef.put(firstFile);
+    fileUpload.addEventListener('change', function(evt) {
+      let firstFile = evt.target.files[0]; // upload the first file only
+      let uploadTask = storageRef.put(firstFile);
+    })
+    
     //save data to db
     firestore
       .collection("articles")
@@ -216,7 +219,7 @@ export default function SimpleTabs() {
           Title:{" "}
           <input id="articleTitle" type="text" name="title" />
           <br></br>
-          Url: <input id="artucleText" type="text" name="url"  />
+          Url: <input id="articleText" type="text" name="url"  />
           <br></br>
           Featured:{" "}
           <input id="articleFeatured" type="checkbox" name="featured" checked />
