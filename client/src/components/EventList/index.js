@@ -5,33 +5,31 @@ import Event from "./../Event";
 const EventList = () => {
   const [loading, setLoading] = useState(true);
   const [eventArray, setEventArray] = useState([]);
+  console.log(eventArray.length);
 
   useEffect(() => {
     firestore
       .collection("events")
       .get()
-      .then(events =>
+      .then(function(events) {
+        const arr = [];
         events.forEach(event => {
           event = event.data();
           const eventDate = "Today";
           const eventImageUrl = "http://via.placeholder.com/150";
           const eventLocation = "Glasgow";
           const eventTitle = event.title;
-          console.log(eventTitle);
 
-          setEventArray(
-            eventArray.concat([
-              {
-                title: eventTitle,
-                location: eventLocation,
-                date: eventDate,
-                imgSrc: eventImageUrl,
-                backgroundColour: "purple"
-              }
-            ])
-          );
-        })
-      )
+          arr.push({
+            title: eventTitle,
+            location: eventLocation,
+            date: eventDate,
+            imgSrc: eventImageUrl,
+            backgroundColour: "purple"
+          });
+        });
+        setEventArray(arr);
+      })
       .then(() => {
         setLoading(false);
       });
