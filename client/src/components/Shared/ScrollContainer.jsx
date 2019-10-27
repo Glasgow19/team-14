@@ -44,37 +44,38 @@ const Header = styled.h5`
 
 export default function ScrollContainer(props) {
 	const classes = useStyles();
-
     const image = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.vfwiFzWrPiiene-4DbUaFAHaE8%26pid%3DApi&f=1"
 
-	const tileData = [
-		{
-			img: image,
-			title: 'Image',
-			author: 'author'
-		},
-		{
-			img: image,
-			title: 'Image',
-			author: 'author'
-		},
-		{
-			img: image,
-			title: 'Image',
-			author: 'author'
-		},
-		{
-			img: image,
-			title: 'Image',
-			author: 'author'
-		}
-	];
-
+	// const tileData = [
+	// 	{
+	// 		img: image,
+	// 		title: 'Image',
+	// 		author: 'author'
+	// 	},
+	// 	{
+	// 		img: image,
+	// 		title: 'Image',
+	// 		author: 'author'
+	// 	},
+	// 	{
+	// 		img: image,
+	// 		title: 'Image',
+	// 		author: 'author'
+	// 	},
+	// 	{
+	// 		img: image,
+	// 		title: 'Image',
+	// 		author: 'author'
+	// 	}
+	// ];
+	if (props.arr === undefined){
+		return null;
+	}
 	return (
 		<div className={classes.root} style = {{background: props.bg}}>
             <Header>{props.title}</Header>
 			<GridList className={classes.gridList} cols={2.5}>
-				{tileData.map((tile) => (
+				{props.arr.map((tile) => (
 					<GridListTile style={{padding:15, marginTop: 10}} key={tile.img}>
 						<img src={tile.img} alt={tile.title} />
 						<GridListTileBar

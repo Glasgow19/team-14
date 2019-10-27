@@ -16,6 +16,7 @@ const Article = props => {
 export default Article;
 
 Article.propTypes = {
+  featured: PropTypes.bool,
   title: PropTypes.string,
   date: PropTypes.string,
   imgSrc: PropTypes.string,
