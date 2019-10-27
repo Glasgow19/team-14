@@ -5,7 +5,6 @@ import Resource from "./../Resource";
 const ResourceList = () => {
   const [loading, setLoading] = useState(true);
   const [resourceArray, setResourceArray] = useState([]);
-  console.log(resourceArray.length);
 
   useEffect(() => {
     firestore
@@ -14,7 +13,7 @@ const ResourceList = () => {
       .then(function(resources) {
         const arr = [];
         resources.forEach(resource => {
-            resource  = resource .data();
+          resource = resource.data();
           const resourceTitle = resource.title;
           const resourceImg = resource.img;
           const resourceUrl = resource.url;
@@ -39,7 +38,7 @@ const ResourceList = () => {
       {loading && <p>Loading</p>}
       {!loading && (
         <div>
-          {resourceArray.map((resource , index) => (
+          {resourceArray.map((resource, index) => (
             <Resource
               key={index}
               index={index}

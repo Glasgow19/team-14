@@ -19,7 +19,11 @@ const Resource = props => {
       <img alt="" src={props.img} />
       <div className="content">
         <h2 className="title">{props.title}</h2>
-        <h3><a href={props.url} className="URL" id='url'>{props.url}</a></h3>
+        <h3>
+          <a href={props.url} className="URL" id="url">
+            {props.url}
+          </a>
+        </h3>
       </div>
     </div>
   );
@@ -30,5 +34,5 @@ export default Resource;
 Resource.propTypes = {
   title: PropTypes.string,
   img: PropTypes.string,
-  url: PropTypes.string,
+  url: PropTypes.string
 };
