@@ -23,8 +23,8 @@ const App = () => {
   return (
     <Router>
       <NavBar />
-      <PageTitle title="Home" />
       <RouteConfig />
+      <PageTitle title="Home" />
     </Router>
   );
 };
