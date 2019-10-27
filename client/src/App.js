@@ -1,32 +1,35 @@
-import React, {useEffect} from 'react';
-import STYLES from './App.css';
+import React, { useEffect } from "react";
+import STYLES from "./App.css";
 // import { RouteConfig } from './routes';
-import styled from 'styled-components';
-import { BrowserRouter as Router } from 'react-router-dom'
-import {firestore} from './config/firebase.init'
+import styled from "styled-components";
+import { BrowserRouter as Router } from "react-router-dom";
+import { firestore } from "./config/firebase.init";
+import SimpleTabs from "./components/Admin/Admin";
 
 const Main = styled.section`
-	display: block;
-	padding-top: 61px;
-	width: 100%;
+  display: block;
+  padding-top: 61px;
+  width: 100%;
 `;
 
 const App = () => {
-
-  const articles = []
+  const articles = [];
 
   useEffect(() => {
-    firestore.collection('articles').get().then((data) => data.forEach(doc => {
-      console.log(doc.data()) 
-    }))
-    return () => {
-      
-    };
-  }, [])
+    firestore
+      .collection("articles")
+      .get()
+      .then(data =>
+        data.forEach(doc => {
+          console.log(doc.data());
+        })
+      );
+    return () => {};
+  }, []);
 
-	return (
+  return (
     <div>
-      
+      <SimpleTabs />
 
       {articles.forEach(a => console.log(a))}
 
@@ -38,8 +41,7 @@ const App = () => {
 			</div>
 		{/* </Router> */}
     </div>
-		
-	);
+  );
 };
 
 export default App;
