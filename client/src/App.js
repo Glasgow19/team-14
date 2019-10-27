@@ -22,18 +22,22 @@ const Main = styled.section`
 	width: 100%;
 `;
 
-
+const titleContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
 
 
 const App = () => {
 	return (
 		<Router>
-			<Container>
+			<Container >
 				<Main>
+          
 					<NavBar />
+          <PageTitle as={Link} to="/" title="dressCode" />
           {/* <Backbutton/> */}
 					<RouteConfig />
-          <PageTitle title="Home" />
           <Footer />
 				</Main>
 			</Container>
